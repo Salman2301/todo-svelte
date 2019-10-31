@@ -1,11 +1,16 @@
 <script>
-  let url = "https://api.quotable.io/random";
+  import { fade } from "svelte/transition";
+
   let quote;
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      quote = data;
-    });
+  function getQuote() {
+    let url = "https://api.quotable.io/random";
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        quote = data;
+      });
+  }
+  getQuote();
 </script>
 
 <style>
@@ -21,12 +26,13 @@
     margin: 0px;
     text-align: center;
     font: 1.5em;
-    font-weight: bold;
+    font-weight: 500;
+    cursor: pointer;
   }
 </style>
 
 {#if quote != undefined}
-  <p>
+  <p on:click={getQuote} transition:fade={{ duration: 2000 }}>
     {quote.content}
     <span>- {quote.author}</span>
   </p>

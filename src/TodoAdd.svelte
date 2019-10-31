@@ -8,11 +8,11 @@
     // newTodo = newTodoIn;
     if (!isEnter) return;
     todos.update(todosVal => [
-      ...todosVal,
       {
         id: getID(),
         title: newTodoIn
-      }
+      },
+      ...todosVal
     ]);
     newTodoIn = "";
   };

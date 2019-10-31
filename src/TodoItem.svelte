@@ -1,13 +1,25 @@
 <script>
   import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
   import "../node_modules/@fortawesome/fontawesome-free/js/all.min.js";
+  import { slide, fade } from "svelte/transition";
+  import { currTodo } from "./stores.js";
+  import Timer from "./Timer.svelte";
   export let id;
   export let title;
 
   export let handleDelTodo;
+  let currTodoVal;
   const handleDelTodoClick = e => {
     handleDelTodo(id);
   };
+
+  const updateCurrTodo = e => {
+    currTodo.update(oldId => id);
+  };
+
+  const unsubscribe = currTodo.subscribe(todoID => {
+    currTodoVal = todoID;
+  });
 </script>
 
 <style>
@@ -16,11 +28,10 @@
     display: flex;
   }
   .title {
-    width: 90%;
+    width: 60%;
   }
   p {
     text-align: center;
-    margin: 0px;
   }
   .todo-item {
     padding: 10px 0px;
@@ -38,10 +49,20 @@
     float: right;
     cursor: pointer;
   }
+  .timer {
+    width: 30%;
+    float: left;
+    position: relative;
+  }
 </style>
 
-<div class="todo-item">
+<div class="todo-item" in:slide on:click={updateCurrTodo}>
   <div class="row">
+    <div class="timer">
+      {#if currTodoVal === id}
+        <Timer {id} />
+      {/if}
+    </div>
     <div class="title">
       <p>{title}</p>
     </div>

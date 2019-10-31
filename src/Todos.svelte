@@ -1,7 +1,18 @@
 <script>
   import TodoItem from "./TodoItem.svelte";
-  export let todos;
-  export let handleDelTodo;
+  import TodoAdd from "./TodoAdd.svelte";
+  // export let todos;
+  // export let handleDelTodo;
+  import { todos, currTodo } from "./stores.js";
+
+  let todosVal = [];
+
+  const unsubscribe = todos.subscribe(todos => {
+    todosVal = todos;
+  });
+  let handleDelTodo = id => {
+    todos.update(todosVal => [...todosVal.filter(el => el.id !== id)]);
+  };
 </script>
 
 <style>
@@ -18,11 +29,13 @@
   }
 </style>
 
+<TodoAdd />
+
 <div class="todos">
-  {#if todos.length}
-    <div class="title">Todo left : {todos.length}</div>
+  {#if todosVal.length}
+    <div class="title">Todo left : {todosVal.length}</div>
     <div class="todo-list">
-      {#each todos as todo}
+      {#each todosVal as todo}
         <div class="todo-item">
           <TodoItem {...todo} {handleDelTodo} />
         </div>
