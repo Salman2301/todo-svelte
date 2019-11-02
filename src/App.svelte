@@ -21,9 +21,7 @@
     margin-top: 70px;
   }
   .app {
-    width: 300px;
-    /* justify-content: center; */
-    /* left: 50%; */
+    width: 400px;
   }
 </style>
 
