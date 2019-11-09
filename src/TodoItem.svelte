@@ -23,6 +23,7 @@
 </script>
 
 <style>
+  
   .row {
     /* position: absolute; */
     display: flex;
@@ -35,7 +36,7 @@
   }
   .todo-item {
     padding: 10px 0px;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid black !important;
   }
   .todo-item:hover .del {
     display: block;
@@ -53,6 +54,10 @@
     width: 30%;
     float: left;
     position: relative;
+  }
+
+  .row {
+    color: black !important;
   }
 </style>
 

@@ -10,9 +10,10 @@
 <style>
   h1 {
     font-size: 2em;
+    text-align: center;
   }
   h1 span {
-    color: blue;
+    color: crimson;
 
     animation: blinker 1s linear infinite;
   }
