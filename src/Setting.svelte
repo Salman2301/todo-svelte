@@ -3,10 +3,14 @@
     import "../node_modules/@fortawesome/fontawesome-free/js/all.min.js";
     import { showSetting, darkmode } from "./stores.js";
     let show = true;
-
+    let darkmodeVal;
 
     const unsubscribe = showSetting.subscribe(showSettingRes => {
       show = showSettingRes;
+    });
+
+    const unsubdarkmode = darkmode.subscribe(oldDarkmode => {
+      darkmodeVal = oldDarkmode;
     });
 
 
@@ -28,7 +32,7 @@
       <div class="item">
           <p>Dark mode</p>
           <label class="switch">
-              <input type="checkbox" id="checkboxID" on:change={handleDarkmode}>
+              <input type="checkbox" id="checkboxID" on:change={handleDarkmode} bind:checked={darkmodeVal}>
               <span class="slider round"></span>
           </label>
       </div>
@@ -94,7 +98,7 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 30px;
+  width: 32px;
   height: 20px;
   /* margin-left: 10px */
 }
