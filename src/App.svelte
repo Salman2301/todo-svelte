@@ -5,6 +5,7 @@
   import Setting from "./Setting.svelte";
   import { darkmode } from "./stores.js";
 
+
  const unsubscribe = darkmode.subscribe(isDarkmode => {
     const body = document.getElementsByTagName("body")[0];
     const colDarkGrey = "#1f1f1f";

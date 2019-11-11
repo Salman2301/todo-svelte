@@ -5,26 +5,10 @@
   let newHr = "";
   let newMin = "";
 
-  const handleKeyDown = e => {
-    let isEnter = e.key === "Enter";
-    if (!newTodoIn) return;
-    // newTodo = newTodoIn;
-    // if (!isEnter) return;
-    // todos.update(todosVal => [
-    //   {
-    //     id: getID(),
-    //     title: newTodoIn
-    //   },
-    //   ...todosVal
-    // ]);
-    // newTodoIn = "";
-  };
-
   const onSubmit = e => {
     e.preventDefault();
-    console.log(e);
     if (!newTodoIn) return;
-    if(!newHr && !newMin) retunr;
+    if(!newHr || !newMin) return;
 
     let numHr = ("0" + Number(newHr)).slice(-2);
     let numMin = ("0" + Number(newMin)).slice(-2);
@@ -76,7 +60,6 @@
     type="text"
     placeholder="Enter a new todo"
     bind:value={newTodoIn}
-    on:keydown={handleKeyDown}
     class="input newTodo"
   />
 
