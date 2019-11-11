@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
+    "gh-pages": "^2.1.1",
     "rollup": "^1.12.0",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-css-only": "^1.0.0",
@@ -19,6 +20,9 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --single",
-    "start:dev": "sirv public --single --dev"
-  }
+    "start:dev": "sirv public --single --dev",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public"
+  },
+  "homepage": "http://Salman2301.github.io/todo-svelte"
 }

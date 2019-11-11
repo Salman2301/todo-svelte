@@ -4,6 +4,10 @@ This app is not connected to DATABASE
 <br>
 This app contain motivation text + Clock + todo checklist.
 
+### Demo
+Live demo [!https://salman2301.github.io/todo-svelte/](https://salman2301.github.io/todo-svelte/)
+
+
 ### screenshot
 
 ![todolist](https://raw.githubusercontent.com/Salman2301/todo-svelte/master/readmeMD/app-first-look.png)
