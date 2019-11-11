@@ -11,7 +11,7 @@
     const colDarkGrey = "#1f1f1f";
     const colWhiteGrey = "#f5f5f5";
 
-    
+     localStorage.setItem("darkmode" , isDarkmode);
     if(isDarkmode) {
       body.style.backgroundColor = colDarkGrey;
       body.style.color = colWhiteGrey;

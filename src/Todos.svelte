@@ -9,6 +9,7 @@
 
   const unsubscribe = todos.subscribe(todos => {
     todosVal = todos;
+    localStorage.setItem("todos" ,JSON.stringify(todos));
   });
   let handleDelTodo = id => {
     todos.update(todosVal => [...todosVal.filter(el => el.id !== id)]);
