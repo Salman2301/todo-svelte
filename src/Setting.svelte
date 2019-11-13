@@ -15,7 +15,6 @@
 
 
     const handleDarkmode = e => {
-      // console.log(e);
       let isChecked = e.target.checked;
       darkmode.update(oldDarkmode => isChecked);
     }
@@ -42,7 +41,7 @@
       </div>
     {/if}
     <div class="setting-icon" on:click={ () =>{showSetting.update(showSetting => !showSetting);}}>
-    <i class="fas fa-sliders-h right" ></i>
+    <i class="fas fa-sliders-h fa-2x right" ></i>
     </div>
 </div>
 

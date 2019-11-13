@@ -14,6 +14,17 @@
   let handleDelTodo = id => {
     todos.update(todosVal => [...todosVal.filter(el => el.id !== id)]);
   };
+  let handleUpdateTodo = (id, newTitle) => {
+    for(let i=0;i<todosVal.length; i++) {
+      let todo = todosVal[i];
+      if(todo.id === id) {
+        todosVal[i].title = newTitle;
+        todos.update(todosVal => [...todosVal]);
+        return;
+      }
+    }
+  };
+  
 </script>
 
 <style>
@@ -38,7 +49,7 @@
     <div class="todo-list">
       {#each todosVal as todo}
         <div class="todo-item">
-          <TodoItem {...todo} {handleDelTodo} />
+          <TodoItem {...todo} {handleDelTodo} {handleUpdateTodo} />
         </div>
       {/each}
     </div>

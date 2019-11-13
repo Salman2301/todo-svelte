@@ -6,7 +6,6 @@
   end.setMinutes(end.getMinutes() + 500);
   let time = "";
 
-  console.log("TIMER INSTANCE CREATED");
   let intervalID = setInterval(() => {
     start = new Date();
     time = end - start;
@@ -15,7 +14,6 @@
     let min = Math.round(time / (60 * 1000)) % 60;
     let hour = Math.round(time / (60 * 60 * 1000));
 
-    // console.log("TIMER RUNNING", id);
     time = `${hour}:${min}:${sec}`;
 
     let isVisible = document.getElementById(id) !== null;
